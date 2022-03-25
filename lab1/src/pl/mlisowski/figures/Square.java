@@ -4,7 +4,7 @@ public class Square extends Figure {
 
     private double a;
 
-    public Square(int a) {
+    public Square(double a) {
         super(a*a, 4*a);
         this.a = a;
     }

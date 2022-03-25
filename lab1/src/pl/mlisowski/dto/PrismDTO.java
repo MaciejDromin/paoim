@@ -1,16 +1,19 @@
 package pl.mlisowski.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.mlisowski.figures.Figure;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SquareDTO {
+public class PrismDTO {
 
-    private double a;
+    private Figure f;
+    private double h;
 
 }
