@@ -68,7 +68,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public FileSystemResource generateCsv() throws IOException {
         List<Student> students = studentRepository.findAll();
-        if(students.isEmpty()); //return null;
+        if(students.isEmpty()) return null;
         JsonNode tree = objectMapper.valueToTree(students);
         Builder csvSchemaBuilder = CsvSchema.builder();
         JsonNode fo = tree.elements().next();
