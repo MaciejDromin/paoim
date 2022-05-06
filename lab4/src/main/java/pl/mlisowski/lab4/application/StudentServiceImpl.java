@@ -41,7 +41,19 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto addStudent(StudentDto student) {
-        return studentDtoFactory.from(studentRepository.save(studentDtoFactory.to(student)));
+        Student s = new Student();
+        s.setBirthYear(student.getBirthYear());
+        s.setName(student.getName());
+        s.setSurrname(student.getSurrname());
+        s.setCondition(student.getCondition());
+        s.setPoints(student.getPoints());
+        return studentDtoFactory.from(studentRepository.save(s));
+    }
+
+    @Override
+    public Student getBareStudent(Long studentId) {
+        return studentRepository.findById(studentId).orElseThrow(() -> new EntityNotFoundException(String
+                .format("Student o id %d nie znaleziony", studentId)));
     }
 
 }

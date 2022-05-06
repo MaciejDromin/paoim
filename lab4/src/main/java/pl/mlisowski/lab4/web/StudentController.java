@@ -1,9 +1,7 @@
 package pl.mlisowski.lab4.web;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.mlisowski.lab4.application.StudentService;
 import pl.mlisowski.lab4.domain.dto.StudentDto;
 
@@ -19,6 +17,11 @@ public class StudentController {
     @GetMapping
     public List<StudentDto> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @PostMapping
+    public StudentDto addStudent(@RequestBody StudentDto student) {
+        return studentService.addStudent(student);
     }
 
     //TODO: Implement rest methods

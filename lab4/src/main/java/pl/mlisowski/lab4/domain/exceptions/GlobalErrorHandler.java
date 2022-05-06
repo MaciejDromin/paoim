@@ -1,6 +1,7 @@
 package pl.mlisowski.lab4.domain.exceptions;
 
 import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,9 +13,10 @@ import java.util.Arrays;
 public class GlobalErrorHandler {
 
     @ExceptionHandler({
-            EntityNotFoundException.class
+            EntityNotFoundException.class,
+            EmptyResultDataAccessException.class
     })
-    public ResponseEntity<ErrorResponse> handleNotFoundException(EntityNotFoundException e) {
+    public ResponseEntity<ErrorResponse> handleNotFoundException(Exception e) {
         return error(HttpStatus.NOT_FOUND, e.getMessage());
     }
 

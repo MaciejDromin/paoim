@@ -23,7 +23,4 @@ public class StudentDto {
     private int birthYear;
     private double points;
 
-    @NotNull
-    private Set<ClassDto> classes;
-
 }

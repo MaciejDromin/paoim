@@ -15,4 +15,6 @@ public interface StudentService {
 
     StudentDto addStudent(StudentDto student);
 
+    Student getBareStudent(Long studentId);
+
 }

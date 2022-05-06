@@ -17,8 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ClassDtoFactory implements AbstractFactory<Class, ClassDto> {
 
-    @Setter
-    private StudentDtoFactory studentDtoFactory;
+    private final StudentDtoFactory studentDtoFactory;
     private final ObjectMapper objectMapper;
 
     @Override
@@ -28,6 +27,7 @@ public class ClassDtoFactory implements AbstractFactory<Class, ClassDto> {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        log.debug("HEEEJ");
         if(from.getStudents() != null && !from.getStudents().isEmpty()) {
             return ClassDto.builder()
                     .id(from.getId())
@@ -41,6 +41,7 @@ public class ClassDtoFactory implements AbstractFactory<Class, ClassDto> {
                     .maxStudents(from.getMaxStudents())
                     .build();
         }
+        log.debug("HOOO");
         return ClassDto.builder()
                 .id(from.getId())
                 .uuid(from.getUuid())
@@ -57,6 +58,7 @@ public class ClassDtoFactory implements AbstractFactory<Class, ClassDto> {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        log.debug("HAAAJ");
         if(to.getStudents() != null && !to.getStudents().isEmpty()) {
             return Class.builder()
                     .id(to.getId())
