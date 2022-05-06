@@ -1,0 +1,4 @@
+id,uuid,name,surrname,condition,birthYear,points
+1,"cdd9e20c-6bab-45b6-8f61-60dad53c4b18",Jan,Kowalski,SICK,2000,2.3
+2,"72785ac5-121a-4e5d-b259-99e25e85bb45",Jan,Kowalski,SICK,2000,2.3
+3,"b30d4068-a7b2-4f49-a3a3-d4caafb50cce",Jan,Kowalski,SICK,2000,2.3

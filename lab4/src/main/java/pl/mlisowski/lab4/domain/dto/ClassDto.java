@@ -1,7 +1,6 @@
 package pl.mlisowski.lab4.domain.dto;
 
 import lombok.*;
-import org.springframework.lang.Nullable;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

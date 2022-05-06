@@ -1,11 +1,13 @@
 package pl.mlisowski.lab4.web;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.bind.annotation.*;
 import pl.mlisowski.lab4.application.StudentService;
 import pl.mlisowski.lab4.domain.dto.StudentDto;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -25,6 +27,10 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
+    @GetMapping("/csv")
+    public FileSystemResource generateCsv() throws IOException {
+        return studentService.generateCsv();
+    }
     //TODO: Implement rest methods
 
 }
