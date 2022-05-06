@@ -1,13 +1,13 @@
 package pl.mlisowski.lab4.domain.exceptions;
 
-import org.hibernate.exception.ConstraintViolationException;
+import javax.validation.ConstraintViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.persistence.EntityNotFoundException;
-import java.util.Arrays;
 
 @ControllerAdvice
 public class GlobalErrorHandler {
@@ -21,9 +21,10 @@ public class GlobalErrorHandler {
     }
 
     @ExceptionHandler({
-            ConstraintViolationException.class
+            ConstraintViolationException.class,
+            MethodArgumentNotValidException.class
     })
-    public ResponseEntity<ErrorResponse> handleBadRequestException(ConstraintViolationException e){
+    public ResponseEntity<ErrorResponse> handleBadRequestException(Exception e){
         return error(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 

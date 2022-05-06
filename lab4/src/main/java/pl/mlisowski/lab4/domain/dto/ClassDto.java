@@ -3,7 +3,9 @@ package pl.mlisowski.lab4.domain.dto;
 import lombok.*;
 import org.springframework.lang.Nullable;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 @Getter
@@ -17,11 +19,14 @@ public class ClassDto {
 
     private String uuid;
 
+    @NotBlank
     private String groupName;
 
-    @NotNull
+
     private Set<StudentDto> students;
 
+    @Min(1)
+    @Max(10)
     private int maxStudents;
 
 }

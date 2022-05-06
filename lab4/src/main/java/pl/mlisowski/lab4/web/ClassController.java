@@ -6,6 +6,7 @@ import pl.mlisowski.lab4.application.ClassService;
 import pl.mlisowski.lab4.domain.dto.ClassDto;
 import pl.mlisowski.lab4.domain.dto.StudentClassDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,12 +22,12 @@ public class ClassController {
     }
 
     @PostMapping
-    public ClassDto addClass(@RequestBody ClassDto klasa) {
+    public ClassDto addClass(@Valid @RequestBody ClassDto klasa) {
         return classService.addClass(klasa);
     }
 
     @PostMapping("/student")
-    public ClassDto addStudent(@RequestBody StudentClassDto studentClassDto) {
+    public ClassDto addStudent(@Valid @RequestBody StudentClassDto studentClassDto) {
         return classService.addStudent(studentClassDto);
     }
 

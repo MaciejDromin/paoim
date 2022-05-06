@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.mlisowski.lab4.application.StudentService;
 import pl.mlisowski.lab4.domain.dto.StudentDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public StudentDto addStudent(@RequestBody StudentDto student) {
+    public StudentDto addStudent(@Valid @RequestBody StudentDto student) {
         return studentService.addStudent(student);
     }
 
