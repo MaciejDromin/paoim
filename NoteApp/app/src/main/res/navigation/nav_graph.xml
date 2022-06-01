@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/FirstFragment">
+
+    <fragment
+            android:id="@+id/FirstFragment"
+            android:name="pl.mlisowski.noteapp.FirstFragment"
+            android:label="@string/first_fragment_label"
+            tools:layout="@layout/fragment_first"/>
+    <fragment
+        android:id="@+id/categoriesAdd"
+        android:name="pl.mlisowski.noteapp.CategoriesAdd"
+        android:label="CategoriesAdd" />
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="pl.mlisowski.noteapp.CategoriesView"
+        android:label="CategoriesView"
+        tools:layout="@layout/categories_view" >
+        <action
+            android:id="@+id/action_nav_categories_to_nav_notes"
+            app:destination="@id/nav_notes" />
+        <action
+            android:id="@+id/action_nav_categories_to_categoriesAdd"
+            app:destination="@id/categoriesAdd" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="pl.mlisowski.noteapp.NotesView"
+        android:label="NotesView"
+        tools:layout="@layout/notes_view">
+        <action
+            android:id="@+id/action_nav_notes_to_nav_categories"
+            app:destination="@id/nav_categories" />
+        <action
+            android:id="@+id/action_nav_notes_to_noteAdd"
+            app:destination="@id/noteAdd" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteAdd"
+        android:name="pl.mlisowski.noteapp.NoteAdd"
+        android:label="NoteAdd" />
+</navigation>
